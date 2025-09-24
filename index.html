@@ -8,10 +8,10 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
   <style>
     :root {
-      --primary: #1e90ff; /* 空色 */
+      --primary: #1e90ff;
       --accent: #60a5fa;
       --bg-white: #ffffff;
-      --bg-lightblue: #f0f8ff; /* 薄い水色 */
+      --bg-lightblue: #f0f8ff;
       --muted: #555;
     }
     body {
@@ -22,41 +22,56 @@
       line-height:1.6;
     }
     header {
-      position:absolute;
+      position:fixed;
       top:0; left:0; right:0;
       display:flex; justify-content:space-between; align-items:center;
-      padding:20px 28px;
+      padding:12px 28px;
+      background:#fff;
+      color:#333;
+      box-shadow:0 2px 6px rgba(0,0,0,0.05);
       z-index:1000;
-      color:#fff;
     }
-    header a { color:#fff; text-decoration:none; font-weight:600; margin-left:20px; }
+    .logo-wrap {
+      display:flex; align-items:center;
+      gap:10px;
+    }
+    .logo-wrap img {
+      height:40px;
+      display:block;
+    }
+    .logo-wrap span {
+      font-weight:700;
+      font-size:18px;
+      color:#333;
+    }
+    nav a {
+      margin-left:20px;
+      text-decoration:none;
+      color:#333;
+      font-weight:600;
+    }
     .cta {
       background: var(--primary);
-      color:#fff;
-      padding:10px 16px;
+      color:#fff !important;
+      padding:8px 14px;
       border-radius:6px;
       font-weight:600;
     }
 
-    /* Logo */
-    .logo img {
-      height:40px; /* ロゴの高さ。必要に応じて調整可 */
-      display:block;
-    }
-
-    /* Hero - full background image */
+    /* Hero */
     .hero {
       height:100vh;
-      background: url("imagesplanev3.jpg") center/cover no-repeat;
+      background: url("imagesplane.jpg") center/cover no-repeat;
       display:flex; justify-content:center; align-items:center;
       text-align:center;
       color:#fff;
       position:relative;
+      margin-top:64px; /* 固定ヘッダー分の余白 */
     }
     .hero::after {
       content:"";
       position:absolute; top:0; left:0; right:0; bottom:0;
-      background: rgba(0,0,0,0.35); /* 画像を暗くして文字を見やすく */
+      background: rgba(0,0,0,0.35);
     }
     .hero-content {
       position:relative; z-index:1;
@@ -87,7 +102,6 @@
       margin-bottom:30px;
     }
 
-    /* Services */
     .services-grid {
       display:grid; grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
       gap:24px;
@@ -100,7 +114,6 @@
     }
     .card h4 { margin:0 0 10px 0; color:var(--primary); }
 
-    /* About */
     .about-box {
       max-width:600px;
       margin:0 auto;
@@ -137,8 +150,9 @@
 </head>
 <body>
   <header>
-    <div class="logo">
+    <div class="logo-wrap">
       <img src="logo_olift.png" alt="株式会社オーリフト" />
+      <span>株式会社オーリフト</span>
     </div>
     <nav>
       <a href="#services">事業内容</a>
