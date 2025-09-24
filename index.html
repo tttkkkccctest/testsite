@@ -38,6 +38,12 @@
       font-weight:600;
     }
 
+    /* Logo */
+    .logo img {
+      height:40px; /* ロゴの高さ。必要に応じて調整可 */
+      display:block;
+    }
+
     /* Hero - full background image */
     .hero {
       height:100vh;
@@ -131,7 +137,9 @@
 </head>
 <body>
   <header>
-    <div style="font-weight:700;">株式会社オーリフト</div>
+    <div class="logo">
+      <img src="logo_olift.png" alt="株式会社オーリフト" />
+    </div>
     <nav>
       <a href="#services">事業内容</a>
       <a href="#about">会社概要</a>
