@@ -94,6 +94,33 @@
     }
     .card h4 { margin:0 0 10px 0; color:var(--primary); }
 
+    /* About */
+    .about-box {
+      max-width:600px;
+      margin:0 auto;
+      background:#fff;
+      border-radius:10px;
+      padding:20px 30px;
+      box-shadow:0 4px 12px rgba(0,0,0,0.05);
+    }
+    .about-box table {
+      width:100%;
+      border-collapse: collapse;
+    }
+    .about-box th, .about-box td {
+      padding:12px;
+      text-align:left;
+      border-bottom:1px solid #eee;
+    }
+    .about-box th {
+      width:30%;
+      font-weight:600;
+      color:#111;
+    }
+    .about-box td {
+      color:#444;
+    }
+
     footer {
       text-align:center; padding:30px;
       color:#777; background:#f5f5f5;
@@ -143,12 +170,26 @@
   <!-- About -->
   <section id="about">
     <h2>会社概要</h2>
-    <p style="text-align:center;">
-      株式会社オーリフト<br>
-      東京都大田区<br>
-      設立：2025年9月<br>
-      代表者：近藤彪司
-    </p>
+    <div class="about-box">
+      <table>
+        <tr>
+          <th>会社名</th>
+          <td>株式会社オーリフト</td>
+        </tr>
+        <tr>
+          <th>所在地</th>
+          <td>東京都大田区</td>
+        </tr>
+        <tr>
+          <th>設立</th>
+          <td>2025年9月</td>
+        </tr>
+        <tr>
+          <th>代表者</th>
+          <td>近藤彪司</td>
+        </tr>
+      </table>
+    </div>
   </section>
 
   <!-- Contact -->
