@@ -8,78 +8,103 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
   <style>
     :root {
-      --primary: #1e90ff; /* 青空っぽい青 */
+      --primary: #1e90ff; /* 空色 */
       --accent: #60a5fa;
-      --bg: #ffffff;
+      --bg-white: #ffffff;
+      --bg-lightblue: #f0f8ff; /* 薄い水色 */
       --muted: #555;
     }
     body {
       margin:0;
       font-family: "Inter", "Yu Gothic", "Hiragino Kaku Gothic ProN", sans-serif;
-      background: var(--bg);
+      background: var(--bg-white);
       color:#333;
       line-height:1.6;
     }
     header {
-      display:flex;
-      justify-content:space-between;
-      align-items:center;
+      position:absolute;
+      top:0; left:0; right:0;
+      display:flex; justify-content:space-between; align-items:center;
       padding:20px 28px;
-      max-width:1200px;
-      margin:0 auto;
+      z-index:1000;
+      color:#fff;
     }
-    .logo { font-weight:700; color:#222; text-decoration:none; }
-    nav a {
-      margin-left:20px; text-decoration:none; color:#333; font-weight:600;
-    }
+    header a { color:#fff; text-decoration:none; font-weight:600; margin-left:20px; }
     .cta {
       background: var(--primary);
       color:#fff;
       padding:10px 16px;
       border-radius:6px;
-      margin-left:18px;
       font-weight:600;
     }
+
+    /* Hero - full background image */
     .hero {
+      height:100vh;
+      background: url("imagesplane.jpg") center/cover no-repeat;
+      display:flex; justify-content:center; align-items:center;
+      text-align:center;
+      color:#fff;
+      position:relative;
+    }
+    .hero::after {
+      content:"";
+      position:absolute; top:0; left:0; right:0; bottom:0;
+      background: rgba(0,0,0,0.35); /* 画像を暗くして文字を見やすく */
+    }
+    .hero-content {
+      position:relative; z-index:1;
+      max-width:800px;
+      padding:20px;
+    }
+    .hero h1 {
+      font-size:48px; margin-bottom:20px; line-height:1.2;
+    }
+    .hero p {
+      font-size:18px; margin-bottom:24px;
+    }
+    .btn-primary {
+      background: var(--primary);
+      color:#fff; padding:12px 24px; border-radius:6px;
+      text-decoration:none; font-weight:600;
+    }
+
+    section {
       max-width:1200px;
       margin:0 auto;
       padding:60px 24px;
-      display:grid;
-      grid-template-columns: 1fr 1fr;
-      gap:40px;
-      align-items:center;
     }
-    .hero h1 {
-      font-size:36px; margin:0 0 20px 0; line-height:1.2;
+    section.alt { background: var(--bg-lightblue); }
+    h2 {
+      text-align:center;
+      color:#111;
+      margin-bottom:30px;
     }
-    .hero p { color:var(--muted); margin:0 0 20px 0; }
-    .btn-primary {
-      background: var(--primary);
-      color:#fff; padding:12px 18px; border-radius:6px;
-      text-decoration:none; font-weight:600;
-    }
-    .hero img {
-      width:100%; border-radius:12px; box-shadow:0 8px 24px rgba(0,0,0,0.1);
-    }
-    section { max-width:1200px; margin:60px auto; padding:0 24px; }
-    h2 { text-align:center; color:#111; margin-bottom:30px; }
+
+    /* Services */
     .services-grid {
       display:grid; grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
       gap:24px;
     }
     .card {
-      background:#f9f9f9; border-radius:10px; padding:20px; box-shadow:0 4px 12px rgba(0,0,0,0.05);
+      background:#fff;
+      border-radius:10px;
+      padding:20px;
+      box-shadow:0 4px 12px rgba(0,0,0,0.05);
     }
     .card h4 { margin:0 0 10px 0; color:var(--primary); }
+
     footer {
-      text-align:center; padding:30px; color:#777; background:#f5f5f5;
-      margin-top:40px; font-size:14px;
+      text-align:center; padding:30px;
+      color:#777; background:#f5f5f5;
+      margin-top:0;
+      font-size:14px;
     }
   </style>
 </head>
 <body>
   <header>
-    <a href="/" class="logo">株式会社オーリフト</a>
+    <div style="font-weight:700;">株式会社オーリフト</div>
     <nav>
       <a href="#services">事業内容</a>
       <a href="#about">会社概要</a>
@@ -89,18 +114,15 @@
 
   <!-- Hero -->
   <div class="hero">
-    <div>
+    <div class="hero-content">
       <h1>関わるすべての企業に、<br>晴れやかな未来を。</h1>
-      <p>株式会社オーリフトは、中小企業の成長を支えるソリューションを提供します。広告運用やDX支援を通じて事業の発展を後押しします。</p>
+      <p>株式会社オーリフトは、中小企業の成長を支えるソリューションを提供します。</p>
       <a href="#contact" class="btn-primary">お問い合わせ</a>
-    </div>
-    <div>
-      <img src="https://images.unsplash.com/photo-1504196606672-aef5c9cefc92?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80" alt="飛行機">
     </div>
   </div>
 
   <!-- Services -->
-  <section id="services">
+  <section id="services" class="alt">
     <h2>事業内容</h2>
     <div class="services-grid">
       <div class="card">
@@ -130,7 +152,7 @@
   </section>
 
   <!-- Contact -->
-  <section id="contact">
+  <section id="contact" class="alt">
     <h2>お問い合わせ</h2>
     <p style="text-align:center;">ご質問やご相談はメールで承っております。</p>
     <p style="text-align:center;">
